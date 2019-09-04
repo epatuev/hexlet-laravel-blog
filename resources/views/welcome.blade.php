@@ -95,5 +95,7 @@
                 </div>
             </div>
         </div>
+        <a href="/about">About</a>
+        <a href="/articles">Articles</a>
     </body>
 </html>
