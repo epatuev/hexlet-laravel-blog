@@ -18,9 +18,9 @@ Route::get('/', function () {
 //Route::get('/about', function () {
 //    return view('about');
 //});
-Route::get('/about', 'PageController@about');
+Route::get('/about', 'PageController@about')->name('about.index');
 Route::get('/team', 'PageController@team');
 
-Route::get('/articles', function () {
-    return view('articles');
-});
+// Название сущности в URL во множественном числе, контроллер в единственном
+Route::get('/articles', 'ArticleController@index')
+    ->name('articles.index'); // имя маршрута, нужно для того чтобы не создавать ссылки руками
