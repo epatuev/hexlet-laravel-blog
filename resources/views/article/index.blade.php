@@ -14,7 +14,7 @@
             @foreach($articles as $article)
                 <tr>
                     <td>{{$article->id}}</td>
-                    <td>{{$article->name}}</td>
+                    <td><a href="{{ url('/articles/'.$article->id) }}">{{$article->name}}</a></td>
                 </tr>
             @endforeach
             </tbody>
