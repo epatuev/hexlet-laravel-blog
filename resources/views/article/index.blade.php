@@ -17,6 +17,7 @@
                     <td><a href="{{ url('/articles/'.$article->id.'/edit') }}">edit</a></td>
                     <td>{{$article->id}}</td>
                     <td><a href="{{ url('/articles/'.$article->id) }}">{{$article->name}}</a></td>
+                    <td><a href="{{ url('/articles/'.$article->id) }}" data-confirm="Вы уверены?" data-method="delete" rel="nofollow">delete</a></td>
                 </tr>
             @endforeach
             </tbody>

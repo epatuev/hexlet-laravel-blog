@@ -5,6 +5,8 @@
  */
 
 require('./bootstrap');
+// После строчки require('./bootstrap');
+require('jquery-ujs');
 
 window.Vue = require('vue');
 
