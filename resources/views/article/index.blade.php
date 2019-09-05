@@ -21,5 +21,8 @@
         </table>
 
         {{$articles->links()}}
+
+        <a href="{{ route('articles.create') }}">Create article</a>
+
         <div>
 @endsection
