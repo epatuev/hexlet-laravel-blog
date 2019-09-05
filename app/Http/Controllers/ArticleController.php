@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Article;
+use App\Http\Requests\ArticleRequest;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
     public function index()
     {
-        $articles = Article::paginate(2);
+        $articles = Article::paginate(5);
 
         // Статьи передаются в шаблон
         // compact('articles') => [ 'articles' => $articles ]
@@ -31,7 +32,7 @@ class ArticleController extends Controller
     }
 
     // Здесь нам понадобится объект запроса, для извлечения данных
-    public function store(Request $request)
+    public function store(ArticleRequest $request)
     {
         // Проверка введенных данных
         // Если будут ошибки, то возникнет исключение
@@ -47,6 +48,24 @@ class ArticleController extends Controller
         $article->save();
 
         // Редирект на указанный маршрут с добавлением флеш сообщения
+        return redirect()
+            ->route('articles.index');
+    }
+
+    public function edit($id)
+    {
+        $article = Article::findOrFail($id);
+        return view('article.edit', compact('article'));
+    }
+
+    public function update(ArticleRequest $request, $id)
+    {
+        $article = Article::findOrFail($id);
+        $article_id = $article->id;
+        $this->validate($request, $request->rules());
+
+        $article->fill($request->all());
+        $article->save();
         return redirect()
             ->route('articles.index');
     }

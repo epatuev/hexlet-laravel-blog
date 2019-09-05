@@ -36,3 +36,10 @@ Route::post('/articles', 'ArticleController@store')
 # Фигурные скобки нужны для описания параметров маршрута
 Route::get('/articles/{id}', 'ArticleController@show')
     ->name('articles.show');
+
+Route::get('/articles/{id}/edit', 'ArticleController@edit')
+    ->name('articles.edit');
+
+// Метод PATCH
+Route::patch('/articles/{id}', 'ArticleController@update')
+    ->name('articles.update');

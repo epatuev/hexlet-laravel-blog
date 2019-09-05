@@ -6,6 +6,7 @@
         <table>
             <thead>
             <tr>
+                <td><a href="{{ route('articles.create') }}">create</a></td>
                 <td>ID</td>
                 <td>Name</td>
             </tr>
@@ -13,6 +14,7 @@
             <tbody>
             @foreach($articles as $article)
                 <tr>
+                    <td><a href="{{ url('/articles/'.$article->id.'/edit') }}">edit</a></td>
                     <td>{{$article->id}}</td>
                     <td><a href="{{ url('/articles/'.$article->id) }}">{{$article->name}}</a></td>
                 </tr>
@@ -21,8 +23,6 @@
         </table>
 
         {{$articles->links()}}
-
-        <a href="{{ route('articles.create') }}">Create article</a>
 
         <div>
 @endsection
